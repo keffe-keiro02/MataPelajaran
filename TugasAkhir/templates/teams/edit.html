@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Team{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="mb-0">Edit Team</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Team Name</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ team.name }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sport_id" class="form-label">Sport</label>
+                            <select class="form-select" id="sport_id" name="sport_id" required>
+                                <option value="">Select a sport</option>
+                                {% for sport in sports %}
+                                <option value="{{ sport.id }}" {% if sport.id == team.sport_id %}selected{% endif %}>{{ sport.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="coach" class="form-label">Coach</label>
+                            <input type="text" class="form-control" id="coach" name="coach" value="{{ team.coach }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="founded_year" class="form-label">Founded Year</label>
+                            <input type="number" class="form-control" id="founded_year" name="founded_year" value="{{ team.founded_year }}" min="1800" max="{{ now.year }}">
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <a href="{{ url_for('team.index') }}" class="btn btn-secondary">Cancel</a>
+                            <button type="submit" class="btn btn-primary">Update Team</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

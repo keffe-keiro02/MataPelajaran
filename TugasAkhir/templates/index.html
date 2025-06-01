@@ -1,0 +1,46 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<div class="jumbotron">
+  <h1 class="display-4">Welcome to SportsHub!</h1>
+  <p class="lead">
+    Your one-stop platform for managing sports activities, teams, and events.
+  </p>
+  <hr class="my-4" />
+  <p>Get started by exploring our features:</p>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Sports</h5>
+          <p class="card-text">Manage different sports and their details.</p>
+          <a href="{{ url_for('sport.index') }}" class="btn btn-primary"
+            >View Sports</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Teams</h5>
+          <p class="card-text">Track teams and their information.</p>
+          <a href="{{ url_for('team.index') }}" class="btn btn-primary"
+            >View Teams</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Events</h5>
+          <p class="card-text">Manage sports events and matches.</p>
+          <a href="{{ url_for('event.index') }}" class="btn btn-primary"
+            >View Events</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
